@@ -85,12 +85,22 @@
                     <hr />
                     
                     <h6>Current Active Rule:</h6>
-                    <asp:GridView ID="gvRules" runat="server" CssClass="table table-sm" AutoGenerateColumns="false" EmptyDataText="No rules configured">
+                    <asp:GridView ID="gvRules" runat="server" CssClass="table table-sm"
+                        AutoGenerateColumns="false" EmptyDataText="No rules configured"
+                        OnRowCommand="gvRules_RowCommand">
                         <Columns>
                             <asp:BoundField DataField="RuleName" HeaderText="Rule Name" />
                             <asp:BoundField DataField="RuleType" HeaderText="Type" />
                             <asp:BoundField DataField="PercentageThreshold" HeaderText="Threshold %" />
                             <asp:BoundField DataField="SpecificApproverName" HeaderText="Specific Approver" />
+                            <asp:TemplateField HeaderText="Action">
+                                <ItemTemplate>
+                                    <asp:Button ID="btnDeleteRule" runat="server" Text="Delete"
+                                        CssClass="btn btn-sm btn-danger"
+                                        CommandName="DeleteRule" CommandArgument='<%# Eval("RuleId") %>'
+                                        OnClientClick="return confirm('Delete this rule?');" />
+                                </ItemTemplate>
+                            </asp:TemplateField>
                         </Columns>
                     </asp:GridView>
                 </div>

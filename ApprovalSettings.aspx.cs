@@ -201,5 +201,26 @@ namespace ExpenseApp
                 return "N/A";
             }
         }
+
+        protected void gvRules_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "DeleteRule")
+            {
+                try
+                {
+                    ApprovalRule.DeleteRule(Convert.ToInt32(e.CommandArgument));
+                    pnlSuccess.Visible = true;
+                    lblSuccess.Text = "Rule deleted successfully!";
+                    pnlError.Visible = false;
+                    LoadData();
+                }
+                catch (Exception ex)
+                {
+                    pnlError.Visible = true;
+                    lblError.Text = "Error: " + ex.Message;
+                    pnlSuccess.Visible = false;
+                }
+            }
+        }
     }
 }

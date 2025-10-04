@@ -25,6 +25,13 @@ namespace ExpenseApp.BLL
             });
         }
 
+        public static void DeleteRule(int ruleId)
+        {
+            DB.Execute("sp_DeleteApprovalRule", new[] {
+                new SqlParameter("@RuleId", ruleId)
+            });
+        }
+
         public static DataTable GetWorkflowSteps(int compId)
         {
             return DB.GetData("sp_GetWorkflowSteps", new[] {
