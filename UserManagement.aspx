@@ -440,7 +440,7 @@
                                             
                                             <asp:DropDownList ID="ddlUserManager" runat="server" CssClass="form-control form-control-sm d-inline-block mr-1" style="width:130px;">
                                             </asp:DropDownList>
-                                            <asp:Button ID="btnUpdateManager" runat="server" Text="Update Mgr" 
+                                            <asp:Button ID="btnUpdateManager" runat="server" Text="Update Manager" 
                                                 CssClass="btn btn-sm btn-warning mr-1" 
                                                 CommandName="UpdateManager" ToolTip="Update Manager" />
                                             
